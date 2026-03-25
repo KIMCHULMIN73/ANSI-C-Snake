@@ -1,10 +1,17 @@
+# directions for this Makefile
+#
+# 1) to build : make build
+# 2) to run   : make run
+# 3) to clean : make clean
+
+
 default: build
 
 build:
-	gcc -o snake src/main.c src/backend.c src/frontend.c -lncurses
+	gcc -o ./output/snake main.c backend.c frontend.c -lncurses
 
 run: build
-	./snake
+	./output/snake
 
 clean:
-	rm snake
+	rm ./output/snake
