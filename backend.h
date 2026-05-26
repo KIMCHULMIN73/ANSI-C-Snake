@@ -4,6 +4,8 @@
  **                                      **
  ******************************************
  **              backend.h               **
+ ******************************************
+ **          kimchulmin, 2026.5          **
  ******************************************/
 
 #include <stdio.h>
@@ -13,26 +15,27 @@
 #include <unistd.h>
 
 /* MACRO for Snake Game */
-#define MAX_STAGE   9
-#define SNAKE_MAX   5
-#define SNAKE_X     0
-#define SNAKE_Y     0
-#define WIDTH       COLS
-#define HEIGHT      LINES
-#define SCR_XMIN    20
-#define SCR_YMIN    20
-#define FRAME_RATE  60
-#define FR_BASEMENT 80
-#define SCALE		    65536
+#define MAX_STAGE      9
+#define SNAKE_MAX      5
+#define SNAKE_X        0
+#define SNAKE_Y        0
+#define WIDTH          COLS
+#define HEIGHT         LINES
+#define SCR_XMIN       20
+#define SCR_YMIN       20
+#define FRAME_RATE     60
+#define FR_BASEMENT    80
+#define SCALE          65536
 
 /* enumeration */
 enum Direction { UP, DOWN, LEFT, RIGHT, BACKWARD };    // to define direction of snake
 enum Status { SUCCESS, FAILURE };                      // to define result(return) of functions
 enum Ending { NEWGAME, CONTINUE, EXIT, NONE };         // to define game mode
-enum Flag { ON, OFF };                                // to define flag for any purpose
+enum Flag { ON, OFF };                                 // to define flag for any purpose
 
 /* data structure to make linked-list for cell(Element of Snake, Enemy, Foods . . .) */
-struct PointList {                                     // structure to define linked-list cell (snake, food etc.)
+struct PointList                                       // structure to define linked-list cell (snake, food etc.)
+{
   int x;                                               // x-positon of cell on game screen
   int y;                                               // y-positon of cell on game screen
   chtype symbol;                                       // shape of cell (chtype : 2-byte character to deal with NCURSES special characters)
@@ -42,7 +45,8 @@ struct PointList {                                     // structure to define li
 typedef struct PointList PointList;                    // redefine data type
 
 /* data structure to save game informations */
-typedef struct {                                       // structure of Board to save real-time game status(data)
+typedef struct                                         // structure of Board to save real-time game status(data)
+{
   PointList *snake;                                    // pointer to save head of snake
   PointList *foods;                                    // pointer to save first food
   PointList *enemy;                                    // pointer to save head of enemy
