@@ -5,7 +5,8 @@
  ******************************************
  **              backend.h               **
  ******************************************
- **          kimchulmin, 2026.5          **
+ **          Julia Evans, 2013           **
+ **     modified by kimchulmin, 2024     **
  ******************************************/
 
 #include <stdio.h>
@@ -36,10 +37,10 @@ enum Flag { ON, OFF };                                 // to define flag for any
 /* data structure to make linked-list for cell(Element of Snake, Enemy, Foods . . .) */
 struct PointList                                       // structure to define linked-list cell (snake, food etc.)
 {
-  int x;                                               // x-positon of cell on game screen
-  int y;                                               // y-positon of cell on game screen
-  chtype symbol;                                       // shape of cell (chtype : 2-byte character to deal with NCURSES special characters)
-  struct PointList* next;                              // point to next cell : linked-list
+    int x;                                               // x-positon of cell on game screen
+    int y;                                               // y-positon of cell on game screen
+    chtype symbol;                                       // shape of cell (chtype : 2-byte character to deal with NCURSES special characters)
+    struct PointList* next;                              // point to next cell : linked-list
 };
 
 typedef struct PointList PointList;                    // redefine data type
@@ -47,14 +48,14 @@ typedef struct PointList PointList;                    // redefine data type
 /* data structure to save game informations */
 typedef struct                                         // structure of Board to save real-time game status(data)
 {
-  PointList *snake;                                    // pointer to save head of snake
-  PointList *foods;                                    // pointer to save first food
-  PointList *enemy;                                    // pointer to save head of enemy
-  int xmax;                                            // to save width of game screen
-  int ymax;                                            // to save height of game screen
-  int score;                                           // to save game score
-  int snake_num;                                       // to save number of snakes remained
-  int stage;                                           // to save current game stage
+    PointList *snake;                                    // pointer to save head of snake
+    PointList *foods;                                    // pointer to save first food
+    PointList *enemy;                                    // pointer to save head of enemy
+    int xmax;                                            // to save width of game screen
+    int ymax;                                            // to save height of game screen
+    int score;                                           // to save game score
+    int snake_num;                                       // to save number of snakes remained
+    int stage;                                           // to save current game stage
 } Board;
 
 /* prototype of functions related to game operations */
